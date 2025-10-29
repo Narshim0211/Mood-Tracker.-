@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "moodtrackr/frontend/package.json",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "dist" }
+    },
+    {
+      "src": "moodtrackr/backend/api/index.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    { "src": "/api/(.*)", "dest": "moodtrackr/backend/api/index.js" },
+    { "src": "/(.*)", "dest": "moodtrackr/frontend/dist/$1" }
+  ]
+}

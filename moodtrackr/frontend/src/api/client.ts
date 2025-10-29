@@ -1,4 +1,6 @@
-export const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:4000/api';
+// Prefer VITE_API_URL. Fallback to relative /api in browsers, and localhost in SSR/dev tools.
+const defaultApiBase = typeof window !== 'undefined' ? '/api' : 'http://localhost:4000/api';
+export const API_URL = import.meta.env.VITE_API_URL || defaultApiBase;
 
 export async function postJson<T>(path: string, body: unknown): Promise<T> {
   const res = await fetch(`${API_URL}${path}`, {
