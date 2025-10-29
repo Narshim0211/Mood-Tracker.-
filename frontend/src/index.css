@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --card: 255 255 255;
+}
+
+body {
+  @apply text-slate-800;
+}
+
+.card {
+  @apply bg-white shadow-sm border border-slate-200 rounded-xl;
+}
+
+.btn {
+  @apply inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium shadow-sm transition-colors;
+}
+.btn-primary {
+  @apply bg-brand-600 text-white hover:bg-brand-700;
+}
+.btn-ghost {
+  @apply bg-white text-slate-700 hover:bg-slate-100 border border-slate-200;
+}
