@@ -11,6 +11,9 @@
       "use": "@vercel/node"
     }
   ],
+  "functions": {
+    "moodtrackr/backend/api/index.js": { "runtime": "nodejs20.x" }
+  },
   "routes": [
     { "src": "/api/(.*)", "dest": "moodtrackr/backend/api/index.js" },
     { "src": "/(.*)", "dest": "/index.html" }
