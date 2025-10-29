@@ -29,7 +29,10 @@ async function start() {
   app.listen(port, () => console.log(`[Server] Listening on http://localhost:${port}`));
 }
 
-if (process.env.NODE_ENV !== 'test') {
+// Only start the HTTP server when this file is executed directly.
+// Importers (e.g., Vercel serverless functions) will receive the Express app
+// without binding to a port.
+if (require.main === module) {
   start();
 }
 
